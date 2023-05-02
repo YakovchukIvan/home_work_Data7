@@ -1,62 +1,60 @@
 "use strict"
 
-const taskInput1 = document.querySelector(".taskInput1")
-const taskInput2 = document.querySelector(".taskInput2")
+const outTask1 = document.querySelector(".outTask1")
+const outTask2 = document.querySelector(".outTask2")
+const outTask3 = document.querySelector(".outTask3")
+
+
 const taskInput3 = document.querySelector(".taskInput3")
+const taskBtn3 = document.querySelector(".taskBtn3")
 
-
-const taskBtn1 = document.querySelector(".taskBtn1")
-const taskBtn2 = document.querySelector(".taskBtn2")
-
-const outTask1 = document.querySelector('.outTask1')
-const outTask2 = document.querySelector('.outTask2')
 
 
 
 function task1 () {
 
-    taskBtn1.addEventListener("click", () => {
-        
-        if (taskInput1.value.toLowerCase() == "sale" || taskInput1.value.toLowerCase() == "vip") {
-            console.log(true);
-            outTask1.style.border = "1px solid gold"
-            outTask1.textContent = "True"
-        } else {
-            console.log(false);
-            outTask1.style.border = "1px solid gold"
-            outTask1.textContent = "False"
-        }
+    const today = new Date();
+    const day = today.getDate().toString().padStart(2, '0'); // padStart якщо день має менше 2 символів (тобто менше 10), тоді перед днем додається 0
+    const monthNames = ['січня', 'лютого', 'березня', 'квітня', 'травня', 'червня', 'липня', 'серпня', 'вересня', 'жовтня', 'листопада', 'грудня'];
+    const month = monthNames[today.getMonth()];
+    const year = today.getFullYear();
 
-        if (taskBtn1) {
-            taskInput1.value = "";
-            console.log("Good btn");
-        }
-        
-    })
+    const formattedDate = `${day} ${month} ${year} року`;
+    
+    outTask1.style.border = "1px solid #fff";
+    outTask1.textContent = formattedDate;
 
-    taskBtn2.addEventListener("click", () => {
-        
-        let text = taskInput2.value;
-
-        let a = parseInt(text.length);
-        let b = parseInt(taskInput3.value);
-
-        console.log(a);
-        console.log(b);
-
-        if (a > b) {
-            console.log(true);
-             outTask2.textContent = text;
-        } else {
-            outTask2.textContent = text.substring(0, 20) + " ...";
-        }
-
-        if (taskBtn2) {
-            taskInput2.value = "";
-            taskInput3.value = "";
-            console.log("Good btn");
-        }
-
-    })
 }
 task1 ()
+
+function task2() {
+    const data = new Date();
+
+    const day = data.getDate();
+    const month = data.getMonth() +1;
+    const year = data.getFullYear();
+    const formattedDate = `${year}-${month}-${day}`;
+
+    console.log(formattedDate);
+    let result = Date.parse(formattedDate);
+    
+    const hours = result / (1000 * 60 * 60);
+
+    outTask2.style.border = "1px solid #fff";
+    outTask2.textContent = hours + " Пройшло годин з 1970-01-01";
+}
+
+task2()
+
+
+function task3() {
+
+    taskBtn3.addEventListener("click", () => {
+    
+        console.log(taskInput3);
+    
+    })
+
+}
+
+task3()
