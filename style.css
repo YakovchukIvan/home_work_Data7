@@ -43,18 +43,40 @@ div {
     padding: 10px 20px;
 }
 
-.outTask1, .outTask2 {
+.outTask1, .outTask2, .outTask3, .outTask4 {
     border-radius: 8px;
     padding: 8px 16px;
     line-height: 25px;
 }
-
 
 input {
     border-radius: 8px;
     border: none;
     font-size: 18px;
     padding: 8px 16px;
+}
+
+.inputTask3, .inputTask4 {
+    /* border: none; */
+    box-sizing: border-box;
+    text-align: center;
+    outline: 0;
+    padding: .75rem;
+    position: relative;
+    width: 200px;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    background: transparent;
+    bottom: 0;
+    color: transparent;
+    cursor: pointer;
+    height: auto;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: auto;
 }
 
 .taskInput3 {
@@ -74,6 +96,11 @@ button {
     margin: 25px;
 }
 
-button:active {
+
+button:hover {
     opacity: 0.8;
+}
+
+button:active {
+    opacity: 1;
 }
